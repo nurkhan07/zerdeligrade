@@ -1,0 +1,2 @@
+-- Intentionally empty: reference data (subjects) lives in the migrations,
+-- demo data is created with `npm run db:seed-demo` and is flagged is_demo.

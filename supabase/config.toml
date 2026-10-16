@@ -1,0 +1,36 @@
+# Minimal Supabase CLI configuration for ZerdeliGrade.
+# Used by `supabase link` / `supabase db push` and by `supabase start` for local development.
+project_id = "zerdeligrade"
+
+[api]
+schemas = ["public"]
+
+[db]
+major_version = 17
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/auth/confirm", "https://*.vercel.app/auth/confirm"]
+# Self-registration is allowed: the e-mail is confirmed with a one-time code and
+# a center admin must approve the access request before any data is visible.
+enable_signup = true
+minimum_password_length = 10
+
+[auth.email]
+enable_signup = true
+enable_confirmations = true
+
+[auth.email.template.confirmation]
+subject = "ZerdeliGrade: растау коды / код подтверждения"
+content_path = "./supabase/templates/confirmation.html"
+
+[auth.email.template.invite]
+subject = "ZerdeliGrade: шақыру / приглашение"
+content_path = "./supabase/templates/invite.html"
+
+[auth.email.template.recovery]
+subject = "ZerdeliGrade: құпиясөзді қалпына келтіру / восстановление пароля"
+content_path = "./supabase/templates/recovery.html"
+
+[storage]
+file_size_limit = "15MiB"
